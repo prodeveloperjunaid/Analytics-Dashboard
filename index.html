@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Analytics Dashboard | Live Data</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="Css/style.css" />
+
+  <!-- Chart.js & Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo-area">
+        <h1>Analytics Dashboard</h1>
+      </div>
+      <button class="export-btn" id="exportCSVBtn">
+        <i class="fas fa-file-csv"></i> Export CSV Report
+      </button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title"><i class="fas fa-users"></i> TOTAL USERS</div>
+        <div class="kpi-value" id="totalUsersValue">0</div>
+        <div class="kpi-trend" id="usersTrend">loading...</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title"><i class="fas fa-dollar-sign"></i> REVENUE (USD)</div>
+        <div class="kpi-value" id="revenueValue">$0</div>
+        <div class="kpi-trend" id="revenueTrend">—</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title"><i class="fas fa-chart-line"></i> GROWTH RATE</div>
+        <div class="kpi-value" id="growthValue">0%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title"><i class="fas fa-bolt"></i> ACTIVE USERS</div>
+        <div class="kpi-value" id="activeUsersValue">0</div>
+        <div class="kpi-trend" id="activeTrend">realtime engagement</div>
+      </div>
+    </div>
+
+    <!-- Charts Grid -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-line"></i> Revenue Trends <span style="font-size:0.7rem">(30‑sec polling)</span></h3>
+        <canvas id="lineRevenueChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-bar"></i> Feature Usage Analytics</h3>
+        <canvas id="barFeatureChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-pie"></i> User Segmentation</h3>
+        <canvas id="pieSegmentationChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <span class="live-badge">
+        <span class="dot-pulse"></span> LIVE API POLLING · every 30 seconds
+      </span>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="Js/api.js"></script>
+  <script src="Js/charts.js"></script>
+  <script src="Js/export.js"></script>
+  <script src="Js/app.js"></script>
+</body>
+</html>
